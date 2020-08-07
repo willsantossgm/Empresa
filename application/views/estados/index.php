@@ -6,6 +6,7 @@
 
 </head>
 <body>
+
 	<div class="container">
 
 		<?php if($this->session->flashdata("success")) : ?>
@@ -92,7 +93,7 @@
 			"maxlength" => "255"
 		));
 
-			echo form_label("Senha", "senha");
+		echo form_label("Senha", "senha");
 		echo form_password(array(
 			"name" => "senha",
 			"id" => "senha",
@@ -108,7 +109,7 @@
  
 		echo form_close();
 		?>
-
+		<?php endif ?>
 
 	</div>
 </body>
