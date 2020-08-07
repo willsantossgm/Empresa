@@ -1,0 +1,18 @@
+RewriteEngine On
+
+Options -Indexes
+
+<IfModule php5_module>
+    php_flag session.cookie_httponly on
+</IfModule>
+
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|css|js|swf|flv|eot|woff|otf|ttf|svg)$">
+	<IfModule mod_headers.c>
+		Header set Cache-Control "max-age=3600, public, must-revalidate"
+	</IfModule>
+</FilesMatch>
+
+RewriteCond %{REQUEST_URI} !=/server-status
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L] 
